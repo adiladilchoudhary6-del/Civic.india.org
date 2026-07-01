@@ -22,7 +22,7 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: ALLOWED_ORIGINS
-        value: https://civicconnect-app.onrender.com
+        value: https://civicconnect-app-3wkv.onrender.com
       - key: PORT
         value: 4000
 
@@ -35,7 +35,7 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        value: https://civicconnect-api.onrender.com
+        value: https://civicconnect-api-bqcb.onrender.com
     routes:
       - type: rewrite
         source: /*
