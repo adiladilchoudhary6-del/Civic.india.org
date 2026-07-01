@@ -1,6 +1,13 @@
 # Render "Blueprint" — lets you deploy both services at once.
 # In the Render dashboard: New > Blueprint > point at your GitHub repo containing this file.
 # Docs: https://render.com/docs/blueprint-spec
+#
+# NOTE: Free-tier Render web services do not support persistent disks. This means
+# the SQLite database resets to the seeded sample data whenever the backend
+# service redeploys or restarts. This is fine for testing/demoing the app.
+# For real production use with data that must persist permanently, upgrade to a
+# paid Render plan with a disk, or migrate to a managed database
+# (see "Upgrading the database" in README.md).
 
 services:
   # ---------- Backend API ----------
@@ -18,10 +25,6 @@ services:
         value: https://civicconnect-app.onrender.com
       - key: PORT
         value: 4000
-    disk:
-      name: civicconnect-data
-      mountPath: /opt/render/project/src/server/db
-      sizeGB: 1
 
   # ---------- Frontend (static site) ----------
   - type: web
